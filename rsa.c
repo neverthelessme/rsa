@@ -21,15 +21,20 @@ int GCD(int n1, int n2) {
 	}
 	return gcd;
 }
-int powmod(int a, int b, int n) {
-	 long x = 1, y = a;
-	while (b > 0) {
-		if (b % 2 == 1)
-			x = (x * y) % n;
-		y = (y * y) % n; 
-		b /= 2;
-	}
-	return x % n;
+int powmod(int a, int m, int n)
+{
+    int r;
+    int y = 1;
+    while (m > 0)
+    {
+        r = m % 2;
+        if (r == 1) {
+            y = (y*a) % n;
+        }
+        a = a*a % n;
+        m = m / 2;
+    }
+    return y;
 }
 int main()
 {
